@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="account.Views.IncreasePage"
+             Title="IncreasePage"
+             BackgroundColor="LightYellow">
+    <VerticalStackLayout>
+        <Label 
+         Text="雞帳專家"
+         FontSize="Large"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" />
+
+        <!--<Image Source="egg.png" 
+    Aspect="AspectFit"
+    />-->
+
+        <Grid Grid.ColumnDefinitions="*,*,*,*,*">
+            <Button Grid.Column="1" 
+                 Text="月收入" 
+                 BackgroundColor="Gray"
+                 HorizontalOptions="Center"
+                 Clicked="incomeButton_Clicked"/>
+            <Button Grid.Column="3"
+                Text="月支出"
+                BackgroundColor="Gray"
+                HorizontalOptions="Center"
+                Clicked="expendButton_Clicked"/>
+        </Grid>
+
+        <DatePicker
+         x:Name="dpDate"
+             Date="{Binding Date}"
+             IsEnabled="True"
+         />
+        <Button Text="計算機"
+             Clicked="calculator_Clicked"
+             />
+        <StackLayout Padding="10">
+            <Label Text="記帳程序" FontSize="24" HorizontalOptions="Center"/>
+            <ImageButton Source="x.png"
+                  BackgroundColor="Transparent"
+                  Clicked="plusbutton_Clicked"
+                  WidthRequest="50"
+                  HeightRequest="50"
+                      
+                      />
+            <Entry x:Name="AmountEntry" Placeholder="輸入金额" IsVisible="False"/>
+            <Entry x:Name="DescriptionEntry" Placeholder="輸入描述"/>
+            <Button Text="添加記錄" Clicked="AddRecordClicked"/>
+            <ListView x:Name="RecordsListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Description}" Detail="{Binding Amount}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

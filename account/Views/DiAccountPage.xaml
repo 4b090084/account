@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="account.Views.DiAccountPage"
+             Title="區分帳戶">
+    <VerticalStackLayout>
+        <Label 
+      Text="區分記帳"
+      FontSize="20"
+      VerticalOptions="Center" 
+      HorizontalOptions="Center" />
+        <Button Text="固定支出" Margin="10"/>
+        <Button Text="娛樂支出" Margin="10"/>
+        <Button Text="新增支出" Margin="10"/>
+    </VerticalStackLayout>
+</ContentPage>

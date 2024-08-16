@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="account.Views.AppSetPage"
+             Title="設定">
+    <Grid Padding="10" RowSpacing="20">
+        <!-- 第一行 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ImageButton Source="bell.png"
+                 Grid.Row="0" Grid.Column="0"
+                 VerticalOptions="Center" HorizontalOptions="Start" />
+        <Button Text="開啟通知"
+            Grid.Row="0" Grid.Column="1"
+            VerticalOptions="Center" HorizontalOptions="Start"
+            BackgroundColor="Transparent" TextColor="Black"
+            Clicked="OnNotification_Clicked" />
+        <Button Text="關閉通知"
+            Grid.Row="0" Grid.Column="1"
+            VerticalOptions="Center" HorizontalOptions="End"
+            BackgroundColor="Transparent" TextColor="Black"
+            Clicked="OffNotification_Clicked" />
+
+        <!-- 第二行 -->
+        <ImageButton Source="settings.png"
+                 Grid.Row="1" Grid.Column="0"
+                 VerticalOptions="Center" HorizontalOptions="Start" />
+        <Button Text="更改背景"
+            Grid.Row="1" Grid.Column="1"
+            VerticalOptions="Center" HorizontalOptions="Start"
+            BackgroundColor="Transparent" TextColor="Black"
+            Clicked="ChangeBackground_Clicked" />
+
+        <!-- 第三行 -->
+        <ImageButton Source="user.png"
+                 Grid.Row="2" Grid.Column="0"
+                 VerticalOptions="Center" HorizontalOptions="Start" />
+        <Button Text="登出"
+            Grid.Row="2" Grid.Column="1"
+            VerticalOptions="Center" HorizontalOptions="Start"
+            BackgroundColor="Transparent" TextColor="Black"
+            Clicked="Logout_Clicked" />
+
+        <!-- 第四行 -->
+        <ImageButton Source="question.png"
+                 Grid.Row="3" Grid.Column="0"
+                 VerticalOptions="Center" HorizontalOptions="Start" />
+        <Button Text="回報問題"
+            Grid.Row="3" Grid.Column="1"
+            VerticalOptions="Center" HorizontalOptions="Start"
+            BackgroundColor="Transparent" TextColor="Black"
+            Clicked="ReportIssue_Clicked" />
+        <Button Text="常見問題"
+            Grid.Row="3" Grid.Column="1"
+            VerticalOptions="Center" HorizontalOptions="End"
+            BackgroundColor="Transparent" TextColor="Black"
+            Clicked="FAQ_Clicked" />
+    </Grid>
+</ContentPage>
