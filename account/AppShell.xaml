@@ -12,9 +12,6 @@
 
         <Tab 
              Icon="list.png">
-            <ShellContent Title="區分帳戶"
-                          Icon="money.png"
-                          ContentTemplate="{DataTemplate views:DiAccountPage}" />
             <ShellContent Title="分類管理"
                           Icon="mng.png"
                           ContentTemplate="{DataTemplate views:SortPage}" />
