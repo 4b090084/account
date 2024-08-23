@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="account.Views.PetMainPage"
-             Title="雞">
+             Title="">
     <StackLayout Padding="10" Spacing="20">
         <!-- 頂部的4列Grid -->
         <Grid RowSpacing="10" ColumnSpacing="10">
@@ -49,8 +49,12 @@
                 </StackLayout>
             </Grid>
         </Grid>
-        <!-- 寵物圖片 -->
-        <Image Source="chicken.png"   WidthRequest="100" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center" />
+        <!-- 寵物圖片和配件 -->
+        <Grid x:Name="PetGrid" VerticalOptions="CenterAndExpand">
+            <Image x:Name="ChickenImage" Source="chicken.png" Aspect="AspectFit"/>
+            <Grid x:Name="AccessoriesGrid"/>
+            <!-- 新增的Grid用於存放配件 -->
+        </Grid>
 
         <!-- 下方的3列Grid -->
         <Grid RowSpacing="10" ColumnSpacing="10">

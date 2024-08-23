@@ -10,7 +10,7 @@ public partial class IncreasePage : ContentPage
 		InitializeComponent();
         RecordsListView.ItemsSource = Records;
         //定義頁面路徑
-        Routing.RegisterRoute(nameof(Views.DiAccountPage), typeof(Views.DiAccountPage));
+        //Routing.RegisterRoute(nameof(Views.DiAccountPage), typeof(Views.DiAccountPage));
     }
 
     private void incomeButton_Clicked(object sender, EventArgs e)

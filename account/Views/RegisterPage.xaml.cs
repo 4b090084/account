@@ -48,7 +48,7 @@ public partial class RegisterPage : ContentPage
                 return;
             }
 
-            var newnote = _firebaseClient.Child("Users").PostAsync(new Login
+            var newnote = _firebaseClient.Child("Users").PostAsync(new Register 
             {
                 UID = UIDEntry.Text,
                 UName = UNameEntry.Text,
