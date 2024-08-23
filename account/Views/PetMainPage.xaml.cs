@@ -4,110 +4,56 @@ namespace account.Views;
 
 public partial class PetMainPage : ContentPage
 {
-    private readonly IAccessoryService _accessoryService;
-    private Dictionary<string, Image> accessories = new Dictionary<string, Image>();
-    private int petLevel = 1;
-
+    public static PetMainPage Instance { get; private set; }
 
     public PetMainPage()
 	{
 		InitializeComponent();
-        _accessoryService = DependencyService.Get<IAccessoryService>();
-        _accessoryService.AccessorySelected += UpdateChickenAccessory;
+        Instance = this;
     }
 
-
-    protected override void OnAppearing()
+    public async Task AddItemToChicken(string itemName)
     {
-        base.OnAppearing();
-        SubscribeToShopPage();
+        // 將兩個圖片合併
+        var combinedImage = await CombineImages("chicken.png", itemName);
+        ChickenImage.Source = combinedImage;
     }
-
-    protected override void OnDisappearing()
+    private async Task<ImageSource> CombineImages(string baseImage, string overlayImage)
     {
-        base.OnDisappearing();
-        _accessoryService.AccessorySelected -= UpdateChickenAccessory;
+        // 這裡需要實現圖片合併的邏輯
+        // 這可能需要使用第三方庫或者自定義的圖片處理邏輯
+        // 為了簡單起見，這裡我們只是返回基礎圖片
+        return ImageSource.FromFile(baseImage);
     }
 
-    public interface IAccessoryService
-    {
-        event Action<string> AccessorySelected;
-        void SelectAccessory(string accessoryName);
-    }
-
-    public class AccessoryService : IAccessoryService
-    {
-        public event Action<string> AccessorySelected;
-
-        public void SelectAccessory(string accessoryName)
-        {
-            AccessorySelected?.Invoke(accessoryName);
-        }
-    }
-    private void SubscribeToShopPage()
-    {
-        if (Navigation.NavigationStack.LastOrDefault() is ShopPage shopPage)
-        {
-            shopPage.AccessorySelected += UpdateChickenAccessory;
-        }
-    }
-
-    private void UnsubscribeFromShopPage()
-    {
-        if (Navigation.NavigationStack.LastOrDefault() is ShopPage shopPage)
-        {
-            shopPage.AccessorySelected -= UpdateChickenAccessory;
-        }
-    }
-
-    private void UpdateChickenAccessory(string accessoryName)
-    {
-        if (accessories.ContainsKey(accessoryName))
-        {
-            AccessoriesGrid.Children.Remove(accessories[accessoryName]);
-            accessories.Remove(accessoryName);
-        }
-        else
-        {
-            var accessory = new Image
-            {
-                Source = ImageSource.FromFile(accessoryName),
-                Aspect = Aspect.AspectFit
-            };
-
-            AccessoriesGrid.Children.Add(accessory);
-            accessories[accessoryName] = accessory;
-        }
-    }
-
-    private async void SettingsButton_Click(object sender, TappedEventArgs e)
-    {
-        // 跳轉到設置頁面的邏輯
-        await Shell.Current.GoToAsync("set");
-    }
-
-    private async void HelpButton_Click(object sender, TappedEventArgs e)
-    {
-        // 跳轉到帮助頁面的邏輯
-        await Shell.Current.GoToAsync("help");
-    }
-
-    private async void HomeButton_Click(object sender, TappedEventArgs e)
-    {
-        // 跳轉到主頁的邏輯
-        await Shell.Current.GoToAsync("home");
-    }
-
-    private async void FeedButton_Click(object sender, TappedEventArgs e)
+    private async void Food_Tapped(object sender, TappedEventArgs e)
     {
         // 跳轉餵養頁面的邏輯
-        await Shell.Current.GoToAsync("food");
+        await Navigation.PushAsync(new FoodPage());
     }
 
-    private async void ShopButton_Click(object sender, TappedEventArgs e)
+    private async void Shop_Tapped(object sender, TappedEventArgs e)
     {
         // 跳轉商店頁面的邏輯
         await Navigation.PushAsync(new ShopPage());
+    }
+
+    private async void Set_Clicked(object sender, EventArgs e)
+    {
+        // 跳轉到設置頁面的邏輯
+        await Navigation.PushAsync(new SetPage());
+    }
+
+    private async void Help_Clicked(object sender, EventArgs e)
+    {
+        // 跳轉到帮助頁面的邏輯
+        await Navigation.PushAsync(new HelpPage());
+    }
+
+    private async void Home_Clicked(object sender, EventArgs e)
+    {
+        // 跳轉到主頁的邏輯
+        await Navigation.PushAsync(new HomePage());
     }
     // 這個方法可以被其他頁面調用來更新寵物狀態
     //public void UpdatePetStatus(string status)

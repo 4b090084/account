@@ -3,7 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="account.Views.ShopPage"
              Title="">
-    <Grid x:Name="ShopGrid" RowDefinitions="*,*,*" ColumnDefinitions="*,*,*">
-        <!-- 商品將在程式中動態添加 -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="hat.png" Grid.Row="0" Grid.Column="0">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnItemTapped" CommandParameter="hat.png"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="flower.png" Grid.Row="0" Grid.Column="1">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnItemTapped" CommandParameter="flower.png"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="greenhat.png" Grid.Row="0" Grid.Column="2">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnItemTapped" CommandParameter="greenhat.png"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="stick.png" Grid.Row="1" Grid.Column="0">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnItemTapped" CommandParameter="stick.png"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="wreath.png" Grid.Row="1" Grid.Column="1">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnItemTapped" CommandParameter="wreath.png"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="witchhat.png" Grid.Row="1" Grid.Column="2">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnItemTapped" CommandParameter="witchhat.png"/>
+            </Image.GestureRecognizers>
+        </Image>
     </Grid>
 </ContentPage>

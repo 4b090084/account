@@ -1,4 +1,6 @@
-﻿namespace account
+﻿using Plugin.LocalNotification;
+
+namespace account
 {
     public partial class AppShell : Shell
     {
@@ -12,6 +14,7 @@
             Routing.RegisterRoute(nameof(Views.SetPage), typeof(Views.SetPage));
             Routing.RegisterRoute(nameof(Views.HelpPage), typeof(Views.HelpPage));
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
+
         }
     }
 }

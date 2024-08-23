@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Firebase.Database;
 using account.Views;
+using Plugin.LocalNotification;
 
 namespace account
 {

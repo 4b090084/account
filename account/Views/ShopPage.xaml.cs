@@ -1,53 +1,27 @@
 namespace account.Views;
-
 using System;
 using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
 
 public partial class ShopPage : ContentPage
 {
-    private readonly IAccessoryService _accessoryService;
-    private string[] accessories =
-        {
-            "hat.png", "flower.png", "greenhat.png",
-            "stick.png", "witchhat.png", "yellowhat.png",
-            "wreath.png", "shoes.png", "pants.png"
-        };
 
     public ShopPage()
 	{
 		InitializeComponent();
-        _accessoryService = DependencyService.Get<IAccessoryService>();
-        CreateShopGrid();
     }
 
-    public Action<string> AccessorySelected { get; internal set; }
 
-    private void CreateShopGrid()
+    private async void OnItemTapped(object sender, TappedEventArgs e)
     {
-        for (int i = 0; i < 3; i++)
+        var image = sender as Image;
+        var itemName = image.GestureRecognizers.OfType<TapGestureRecognizer>().FirstOrDefault()?.CommandParameter as string;
+
+        if (!string.IsNullOrEmpty(itemName))
         {
-            for (int j = 0; j < 3; j++)
-            {
-                var imageName = accessories[i * 3 + j];
-                var image = new Image
-                {
-                    Source = ImageSource.FromFile(imageName),
-                    Aspect = Aspect.AspectFit
-                };
-
-                var tapGestureRecognizer = new TapGestureRecognizer();
-                tapGestureRecognizer.Tapped += (s, e) => OnImageTapped(imageName);
-                image.GestureRecognizers.Add(tapGestureRecognizer);
-
-                ShopGrid.Add(image, j, i);
-            }
+            // 這裡我們假設 PetMainPage 是一個單例，或者我們有某種方式可以訪問到它
+            await PetMainPage.Instance.AddItemToChicken(itemName);
+            await DisplayAlert("成功", $"已為雞添加 {itemName}", "確定");
         }
-    }
-
-
-    private void OnImageTapped(string imageName)
-    {
-        _accessoryService.SelectAccessory(imageName);
     }
 }

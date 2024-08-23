@@ -39,7 +39,7 @@ public partial class LoginPage : ContentPage
             if (matchingUser != null)
             {
                 await DisplayAlert("成功", "登入成功", "確定");
-                await Shell.Current.GoToAsync("PetMainPage");
+                await Shell.Current.GoToAsync("HomePage");
                 // 這裡可以導航到主頁面
             }
             else
