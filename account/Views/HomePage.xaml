@@ -2,11 +2,90 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="account.Views.HomePage"
-             Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+
+        <!-- 頂部欄位 -->
+        <Grid Grid.Row="0" BackgroundColor="#f0f0f0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+      
+            <Button Grid.Column="0" 
+                    Text="☰"
+                    FontSize="24"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Margin="10,0,0,0"
+                    BackgroundColor="Transparent" 
+                    Clicked="listClicked"/>
+
+
+            <Label Grid.Column="1"
+                   Text="雞帳專家"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+
+            <Label Grid.Column="2"
+                   Text="顯示當前帳號"
+                   FontSize="16"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"
+                   Margin="0,0,10,0" />
+        </Grid>
+
+        <!-- 分頁按鈕列 -->
+        <Grid Grid.Row="1" BackgroundColor="#e0e0e0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Text="月支出"
+                    FontSize="18"
+                    BackgroundColor="Transparent"
+                    TextColor="Black"
+                    Clicked="MonthlyExpenseClicked" />
+
+            <Button Grid.Column="1"
+                    Text="月收入"
+                    FontSize="18"
+                    BackgroundColor="Transparent"
+                    TextColor="Black"
+                    Clicked="MonthlyIncomeClicked" />
+        </Grid>
+
+        <!-- 圖表顯示區域 -->
+        <ContentView Grid.Row="2" x:Name="ChartContainer">
+            <!-- 圖表將在代碼中動態添加 -->
+        </ContentView>
+
+        <!-- 新增記帳事件按鈕 -->
+        <Button Grid.Row="3"
+                Text="新增記帳事件"
+                FontSize="18"
+                WidthRequest="200"
+                HeightRequest="50"
+                CornerRadius="25"
+                BackgroundColor="#007AFF"
+                TextColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="AddAccountingClicked"/>
+    </Grid>
 </ContentPage>

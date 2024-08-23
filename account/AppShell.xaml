@@ -32,9 +32,9 @@
         <ShellContent
         Title="寵物"
         ContentTemplate="{DataTemplate views:PetMainPage}"/>
-        <ShellContent 
-         Title="每日記帳"
-         ContentTemplate="{DataTemplate views:IncreasePage}"/>
+        <ShellContent
+         Title="首頁"
+         ContentTemplate="{DataTemplate views:HomePage}"/>
     </FlyoutItem>
 
     <!--<ShellContent
