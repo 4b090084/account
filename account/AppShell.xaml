@@ -9,22 +9,21 @@
     Title="account">
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-
-        <Tab 
-             Icon="list.png">
+<!-- <Tab Title="選項"-->
+        <!--<Tab Icon="list.png">-->
             <ShellContent Title="分類管理"
                           Icon="mng.png"
                           ContentTemplate="{DataTemplate views:SortPage}" />
             <ShellContent Title="財務報表"
-              Icon="money.png"
-              ContentTemplate="{DataTemplate views:FinancePage}" />
+                          Icon="money.png"
+                          ContentTemplate="{DataTemplate views:FinancePage}" />
             <ShellContent Title="萌寵介面"
-              Icon="cick.png"
-              ContentTemplate="{DataTemplate views:PetMainPage}" />
+                          Icon="cick.png"
+                          ContentTemplate="{DataTemplate views:PetMainPage}" />
             <ShellContent Title="功能設定"
-              Icon="set.png"
-              ContentTemplate="{DataTemplate views:SetPage}" />
-        </Tab>   
+                          Icon="set.png"
+                          ContentTemplate="{DataTemplate views:SetPage}" />
+        <!--</Tab>-->   
     </FlyoutItem>
         <ShellContent
         Title="登入/登出"
