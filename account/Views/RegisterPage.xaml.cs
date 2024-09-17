@@ -6,13 +6,14 @@ using System.Collections.ObjectModel;
 
 public partial class RegisterPage : ContentPage
 {
-    private readonly FirebaseClient _firebaseClient;
-    //private readonly FirebaseClient firebase = new FirebaseClient("https://chicken-7bab7-default-rtdb.firebaseio.com/");
-    public RegisterPage(FirebaseClient firebaseClient)
-	{
+    //private readonly FirebaseClient _firebaseClient;
+    private readonly FirebaseClient _firebaseClient = new FirebaseClient("https://chicken-7bab7-default-rtdb.firebaseio.com/");
+    //public RegisterPage(FirebaseClient firebaseClient)
+    public RegisterPage()
+    {
 		InitializeComponent();
 
-        _firebaseClient = firebaseClient;
+        //_firebaseClient = firebaseClient;
     }
     // µù¥U«ö¶s
     private async void Register_Clicked(object sender, EventArgs e)
@@ -48,7 +49,7 @@ public partial class RegisterPage : ContentPage
                 return;
             }
 
-            var newnote = _firebaseClient.Child("Users").PostAsync(new Login
+            var newnote = _firebaseClient.Child("Users").PostAsync(new Register
             {
                 UID = UIDEntry.Text,
                 UName = UNameEntry.Text,

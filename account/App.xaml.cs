@@ -1,4 +1,6 @@
-﻿namespace account
+﻿using account.Views;
+
+namespace account
 {
     public partial class App : Application
     {
