@@ -15,8 +15,10 @@ public partial class LoginPage : ContentPage
         await Shell.Current.GoToAsync("RegisterPage");
     }
     //登入按鈕
-    private  void Login_Clicked(object sender, EventArgs e)
+    private async void Login_Clicked(object sender, EventArgs e)
     {
-        DisplayAlert("登入", "登入按钮點擊!", "確定");
+        DisplayAlert("登入", "登入成功!", "確定");
+        await Navigation.PushAsync(new HomePage());
+
     }
 }
