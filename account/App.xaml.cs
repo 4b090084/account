@@ -4,8 +4,10 @@
     {
         public App()
         {
-            //MainPage = new AppShell();
-            MainPage = new NavigationPage(new PetMainPage());
+        
+
+            MainPage = new AppShell();
+            //MainPage = new NavigationPage(new PetMainPage());
         }
     }
 }
