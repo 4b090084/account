@@ -7,7 +7,7 @@
         <VerticalStackLayout Spacing="20" Padding="20">
 
             <!-- 類型選擇 -->
-            <Picker x:Name="TypePicker" Title="類型">
+            <Picker x:Name="TypePicker" Title="類型" SelectedIndexChanged="TypeChanged">
                 <Picker.Items>
                     <x:String>支出</x:String>
                     <x:String>收入</x:String>
@@ -18,15 +18,7 @@
             <DatePicker x:Name="DatePicker" />
 
             <!-- 類別選擇 -->
-            <Picker x:Name="CategoryPicker" Title="類別">
-                <Picker.Items>
-                    <x:String>食</x:String>
-                    <x:String>衣</x:String>
-                    <x:String>住</x:String>
-                    <x:String>行</x:String>
-                    <x:String>育</x:String>
-                    <x:String>樂</x:String>
-                </Picker.Items>
+            <Picker x:Name="CategoryPicker" Title="類別" IsEnabled="false">
             </Picker>
 
             <!-- 金額輸入 -->

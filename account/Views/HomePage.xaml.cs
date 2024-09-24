@@ -1,5 +1,5 @@
 
-using Windows.UI.ApplicationSettings;
+//using Windows.UI.ApplicationSettings;
 
 namespace account.Views;
 
@@ -52,7 +52,7 @@ public partial class HomePage : ContentPage
 
     private async void AddAccountingClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new AddAccountingPage());
+        await Shell.Current.GoToAsync("AddAccountingPage");
     }
     private void DisplayChart(string chartType)
     {

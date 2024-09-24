@@ -1,6 +1,7 @@
 ﻿namespace account.Views;
 using Firebase.Database;
 using Firebase.Database.Query;
+using account.Models;
 using Microsoft.Maui;
 using Microsoft.Maui.Storage;
 
@@ -34,11 +35,21 @@ public partial class LoginPage : ContentPage
                 .Child("Users")
                 .OrderBy("UID")
                 .EqualTo(UID)
-                .OnceAsync<Info>();
+                .OnceAsync<Register>();
 
-            var matchingUser = user.FirstOrDefault(u => u.Object.Password == UPwd);
+            bool success = false;
+            if (user != null)
+            {
+                Register loginUser = user.First().Object;
+                if (loginUser.UPwd == UPwd)
+                {
+                    success = true;
+                }
+            }
 
-            if (matchingUser != null)
+
+
+            if (success)
             {
                 await DisplayAlert("成功", "登入成功", "確定");
                 await Shell.Current.GoToAsync("HomePage");
