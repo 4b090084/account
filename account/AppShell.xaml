@@ -5,40 +5,37 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:account"
     xmlns:views="clr-namespace:account.Views" 
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="account">
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-
-        <Tab 
-             Icon="list.png">
-            <ShellContent Title="區分帳戶"
-                          Icon="money.png"
-                          ContentTemplate="{DataTemplate views:DiAccountPage}" />
-            <ShellContent Title="分類管理"
+        <!-- <Tab Title="選項"-->
+        <!--<Tab Icon="list.png">-->
+        <ShellContent Title="分類管理"
                           Icon="mng.png"
                           ContentTemplate="{DataTemplate views:SortPage}" />
-            <ShellContent Title="財務報表"
-              Icon="money.png"
-              ContentTemplate="{DataTemplate views:FinancePage}" />
-            <ShellContent Title="萌寵介面"
-              Icon="cick.png"
-              ContentTemplate="{DataTemplate views:PetMainPage}" />
-            <ShellContent Title="功能設定"
-              Icon="set.png"
-              ContentTemplate="{DataTemplate views:SetPage}" />
-        </Tab>
-        <ShellContent
+        <ShellContent Title="財務報表"
+                          Icon="money.png"
+                          ContentTemplate="{DataTemplate views:FinancePage}" />
+        <ShellContent Title="萌寵介面"
+                          Icon="cick.png"
+                          ContentTemplate="{DataTemplate views:PetMainPage}" />
+        <ShellContent Title="功能設定"
+                          Icon="set.png"
+                          ContentTemplate="{DataTemplate views:SetPage}" />
+        <!--</Tab>-->
+    </FlyoutItem>
+    <ShellContent
         Title="登入"
         ContentTemplate="{DataTemplate views:LoginPage}"
-        Route="MainPage" />
-        <ShellContent
+        Route="LogiPage" />
+    <!--<ShellContent
         Title="寵物"
         ContentTemplate="{DataTemplate views:PetMainPage}"/>
         <ShellContent
          Title="首頁"
-         ContentTemplate="{DataTemplate views:HomePage}"/>
-    </FlyoutItem>
+         ContentTemplate="{DataTemplate views:HomePage}"/>-->
+
 
     <!--<ShellContent
             Title="分類管理"

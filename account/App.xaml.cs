@@ -8,7 +8,7 @@ namespace account
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new AppShell();
         }
     }
 }
