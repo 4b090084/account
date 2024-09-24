@@ -12,9 +12,10 @@
                           ContentTemplate="{DataTemplate views:LoginPage}"
                           Route="LogiPage" />
 
+
     <!--<FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        --><!-- <Tab Title="選項"-->
-        <!--<Tab Icon="list.png">--><!-- 
+         <Tab Title="選項"
+        <Tab Icon="list.png"> 
         <ShellContent Title="登入"
                           ContentTemplate="{DataTemplate views:LoginPage}"
                           Route="LogiPage" />
@@ -30,8 +31,8 @@
         <ShellContent Title="功能設定"
                           Icon="set.png"
                           ContentTemplate="{DataTemplate views:SetPage}" />
-        --><!--</Tab>--><!--
-    </FlyoutItem>-->
+        </Tab>
+    </FlyoutItem>
   
     <!--<ShellContent
         Title="寵物"

@@ -21,7 +21,7 @@ public partial class LoginPage : ContentPage
     //登入按鈕
     private async void Login_Clicked(object sender, EventArgs e)
     {
-        string UID = UIDEntry.Text; ;
+        string UID = UIDEntry.Text; 
         string UPwd = UPwdEntry.Text;
         if (string.IsNullOrEmpty(UID) || string.IsNullOrEmpty(UPwd))
         {
@@ -34,7 +34,7 @@ public partial class LoginPage : ContentPage
                 .Child("Users")
                 .OrderBy("UID")
                 .EqualTo(UID)
-                .OnceAsync<UserData>();
+                .OnceAsync<Info>();
 
             var matchingUser = user.FirstOrDefault(u => u.Object.Password == UPwd);
 
@@ -56,10 +56,10 @@ public partial class LoginPage : ContentPage
     }
 
 
-    public class UserData
+    public class Info
     {
-        public string Account { get; set; }
-        public string Password { get; set; }
+        public string? Name { get; set; }
+        public string? Password { get; set; }
     }
 
 

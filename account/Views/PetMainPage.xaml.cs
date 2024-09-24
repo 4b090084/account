@@ -1,8 +1,11 @@
-﻿namespace account.Views;
+﻿
+namespace account.Views;
 
 public partial class PetMainPage : ContentPage
 {
-	public PetMainPage()
+    public static object Instance { get; internal set; }
+
+    public PetMainPage()
 	{
 		InitializeComponent();
 	}
@@ -35,5 +38,10 @@ public partial class PetMainPage : ContentPage
     {
         // 跳轉商店頁面的邏輯
         await Shell.Current.GoToAsync("shop");
+    }
+
+    internal void AddItemToChicken(string v)
+    {
+        throw new NotImplementedException();
     }
 }
