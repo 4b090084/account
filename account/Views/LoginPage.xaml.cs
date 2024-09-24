@@ -21,7 +21,7 @@ public partial class LoginPage : ContentPage
     //登入按鈕
     private async void Login_Clicked(object sender, EventArgs e)
     {
-        string UID = UIDEntry.Text; ;
+        string UID = UIDEntry.Text; 
         string UPwd = UPwdEntry.Text;
         if (string.IsNullOrEmpty(UID) || string.IsNullOrEmpty(UPwd))
         {
