@@ -1,7 +1,6 @@
-
 //using Windows.UI.ApplicationSettings;
-
 namespace account.Views;
+using System;
 
 public partial class HomePage : ContentPage
 {
@@ -50,10 +49,6 @@ public partial class HomePage : ContentPage
         DisplayChart("月收入");
     }
 
-    private async void AddAccountingClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("AddAccountingPage");
-    }
     private void DisplayChart(string chartType)
     {
         // 清除當前圖表
@@ -68,5 +63,11 @@ public partial class HomePage : ContentPage
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center
         };
+    }
+
+    private async void AddAccounting_Clicked(object sender, EventArgs e)
+    {
+        // 跳轉到記帳頁面的邏輯
+        await Shell.Current.GoToAsync("AddAccountingPage");
     }
 }

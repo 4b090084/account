@@ -86,6 +86,6 @@
                 TextColor="White"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="AddAccountingClicked"/>
+                Clicked="AddAccounting_Clicked"/>
     </Grid>
 </ContentPage>
