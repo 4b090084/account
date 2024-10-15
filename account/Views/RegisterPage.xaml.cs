@@ -11,6 +11,7 @@ public partial class RegisterPage : ContentPage
     //public RegisterPage(FirebaseClient firebaseClient)
     public RegisterPage()
     {
+
 		InitializeComponent();
 
         //_firebaseClient = firebaseClient;
@@ -21,19 +22,19 @@ public partial class RegisterPage : ContentPage
         string UID = UIDEntry.Text;
         string UName = UNameEntry.Text;
         string UPwd = UPwdEntry.Text;
-        string UPwd2 = UPwd2Entry.Text;
 
-        if (string.IsNullOrEmpty(UID) || string.IsNullOrEmpty(UName) || string.IsNullOrEmpty(UPwd) || string.IsNullOrEmpty(UPwd2))
+
+        if (string.IsNullOrEmpty(UID) || string.IsNullOrEmpty(UName) || string.IsNullOrEmpty(UPwd))
         {
             await DisplayAlert("錯誤", "請填寫所有欄位", "確定");
             return;
         }
 
-        if (UPwd != UPwd2)
-        {
-            await DisplayAlert("錯誤", "兩次輸入的密碼不一致", "確定");
-            return;
-        }
+        //if (UPwd != UPwd2)
+        //{
+        //    await DisplayAlert("錯誤", "兩次輸入的密碼不一致", "確定");
+        //    return;
+        //}
 
         try
         {
@@ -54,7 +55,7 @@ public partial class RegisterPage : ContentPage
                 UID = UIDEntry.Text,
                 UName = UNameEntry.Text,
                 UPwd = UPwdEntry.Text,
-                UPwd2 =UPwd2Entry.Text
+                //UPwd2 =UPwd2Entry.Text
             });
 
             await DisplayAlert("成功", "註冊成功", "確定");
