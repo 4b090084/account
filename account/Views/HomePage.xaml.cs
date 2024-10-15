@@ -1,5 +1,5 @@
 
-using Windows.UI.ApplicationSettings;
+//using Windows.UI.ApplicationSettings;
 
 namespace account.Views;
 
@@ -10,35 +10,6 @@ public partial class HomePage : ContentPage
 		InitializeComponent();
 	}
 
-    private async void listClicked(object sender, EventArgs e)
-    {
-        {
-            var action = await DisplayActionSheet(
-                "功能列表",
-                "取消",
-                null,
-                "首頁",
-                "月度報告",
-                "年度報告"
-                );
-
-            switch (action)
-            {
-                case "首頁":
-                    // 已經在首頁，不需要操作
-                    break;
-                case "月度報告":
-                    await Navigation.PushAsync(new PetMainPage());
-                    break;
-                case "年度報告":
-                    await Navigation.PushAsync(new PetMainPage());
-                    break;
-                case "預算設置":
-                    await Navigation.PushAsync(new PetMainPage());
-                    break;
-            }
-        }
-    }
 
     private void MonthlyExpenseClicked(object sender, EventArgs e)
     {
@@ -52,7 +23,7 @@ public partial class HomePage : ContentPage
 
     private async void AddAccountingClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new AddAccountingPage());
+        await Shell.Current.GoToAsync("AddAccountingPage");
     }
     private void DisplayChart(string chartType)
     {

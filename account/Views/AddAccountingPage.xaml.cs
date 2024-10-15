@@ -2,7 +2,9 @@ namespace account.Views;
 
 public partial class AddAccountingPage : ContentPage
 {
-	public AddAccountingPage()
+    private readonly List<string> expenseCategories = new List<string> { "食", "衣", "住", "行", "育", "樂" };
+    private readonly List<string> incomeCategories = new List<string> { "薪水", "父母", "獎金" };
+    public AddAccountingPage()
 	{
 		InitializeComponent();
         DatePicker.Date = DateTime.Now;  // 設置默認日期為今天
@@ -27,6 +29,29 @@ public partial class AddAccountingPage : ContentPage
         await DisplayAlert("成功", "記帳事件已添加", "確定");
 
         // 返回上一頁
-        await Navigation.PopAsync();
+        await Shell.Current.GoToAsync("..");
+    }
+
+    private async void TypeChanged(object sender, EventArgs e)
+    {
+        if (TypePicker.SelectedIndex == -1)
+        {
+            CategoryPicker.IsEnabled = false;
+            CategoryPicker.ItemsSource = null;
+            return;
+        }
+
+        CategoryPicker.IsEnabled = true;
+
+        if (TypePicker.SelectedItem.ToString() == "支出")
+        {
+            CategoryPicker.ItemsSource = expenseCategories;
+        }
+        else if (TypePicker.SelectedItem.ToString() == "收入")
+        {
+            CategoryPicker.ItemsSource = incomeCategories;
+        }
+
+        CategoryPicker.SelectedIndex = -1;
     }
 }

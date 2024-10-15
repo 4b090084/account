@@ -2,11 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="account.Views.FoodPage"
-             Title="FoodPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="">
+    <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*">
+        <Image Source="brocoli.png" Grid.Row="0" Grid.Column="0" 
+               x:Name="Brocoli" />
+        <Image Source="carrots.png" Grid.Row="0" Grid.Column="1" 
+               x:Name="Carrots" />
+        <Image Source="chestnut.png" Grid.Row="1" Grid.Column="0" 
+               x:Name="Chestnut" />
+        <Image Source="chips.png" Grid.Row="1" Grid.Column="1" 
+               x:Name="Chips" />
+        <Image Source="kiwi.png" Grid.Row="2" Grid.Column="0" 
+               x:Name="Kiwi" />
+    </Grid>
 </ContentPage>
